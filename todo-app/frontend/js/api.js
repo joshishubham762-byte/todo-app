@@ -1,5 +1,5 @@
 // Change this if your backend runs on a different URL/port
-const API_BASE_URL = 'http://localhost:5000/api';
+const API_BASE_URL = 'https://todo-app-6zk9.onrender.com/api';
 
 function getToken() {
   return localStorage.getItem('token');
