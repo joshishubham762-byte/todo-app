@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Todos</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <div class="card wide dashboard-panel">
+      <div class="dashboard-header">
+        <div>
+          <p class="eyebrow">Productivity Hub</p>
+          <h1>Hi, <span id="userName">there</span> 👋</h1>
+        </div>
+        <div class="header-actions">
+          <button class="theme-toggle" id="darkModeToggle" type="button" aria-label="Toggle dark mode">🌙 Dark</button>
+          <button class="logout-btn" id="logoutBtn">Log Out</button>
+        </div>
+      </div>
+
+      <div class="stats-row">
+        <div class="stat-card">
+          <span class="stat-label">Tasks</span>
+          <strong id="todoCount">0</strong>
+        </div>
+        <div class="stat-card">
+          <span class="stat-label">Done</span>
+          <strong id="doneCount">0</strong>
+        </div>
+        <div class="stat-card">
+          <span class="stat-label">Focus</span>
+          <strong>On</strong>
+        </div>
+      </div>
+
+      <div class="error-message" id="errorMessage"></div>
+
+      <form class="add-todo-form" id="addTodoForm">
+        <input type="text" id="todoInput" placeholder="What do you need to do?" required />
+        <input type="date" id="todoDueDate" aria-label="Due date" />
+        <select id="todoCategory" aria-label="Todo category">
+          <option value="General">General</option>
+          <option value="Work">Work</option>
+          <option value="Personal">Personal</option>
+          <option value="Urgent">Urgent</option>
+        </select>
+        <button type="submit">Add</button>
+      </form>
+
+      <div class="filter-bar" id="filterBar">
+        <button class="filter-btn active" data-filter="All" type="button">All</button>
+        <button class="filter-btn" data-filter="Work" type="button">Work</button>
+        <button class="filter-btn" data-filter="Personal" type="button">Personal</button>
+        <button class="filter-btn" data-filter="Urgent" type="button">Urgent</button>
+        <button class="filter-btn" data-filter="General" type="button">General</button>
+      </div>
+
+      <div class="toolbar-row">
+        <input type="search" id="todoSearch" placeholder="Search todos..." aria-label="Search todos" />
+        <div class="status-filters" aria-label="Todo status filters">
+          <button class="status-btn active" data-status="All" type="button">All</button>
+          <button class="status-btn" data-status="Active" type="button">Active</button>
+          <button class="status-btn" data-status="Completed" type="button">Completed</button>
+        </div>
+        <div class="active-counter">
+          <span>Active</span>
+          <strong id="activeCount">0</strong>
+        </div>
+      </div>
+
+      <div class="todo-panel">
+        <div class="list-header">
+          <span>Today's tasks</span>
+        </div>
+        <ul class="todo-list" id="todoList"></ul>
+        <div class="empty-state" id="emptyState" style="display: none;" aria-live="polite">
+          <div class="empty-state-icon" aria-hidden="true">✓</div>
+          <h3>All caught up</h3>
+          <p>No todos yet. Add one above and get moving.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script src="js/api.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>
