@@ -1,5 +1,5 @@
-// Point the frontend to the local backend used by this project.
-const API_BASE_URL = 'http://localhost:5001/api';
+// Use a deploy-safe backend URL; override via VITE_API_URL in production builds.
+const API_BASE_URL = (typeof window !== 'undefined' && window.__API_BASE_URL__) || 'http://localhost:5001/api';
 
 function getToken() {
   return localStorage.getItem('token');
