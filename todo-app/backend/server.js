@@ -1,27 +1,7 @@
 require('dotenv').config();
-const express = require('express');
 const mongoose = require('mongoose');
-const cors = require('cors');
+const app = require('./app');
 
-const authRoutes = require('./routes/authRoutes');
-const todoRoutes = require('./routes/todoRoutes');
-
-const app = express();
-
-// Middleware
-app.use(cors()); // allows the frontend (different origin) to talk to this API
-app.use(express.json()); // parses incoming JSON request bodies
-
-// Routes
-app.use('/api/auth', authRoutes);
-app.use('/api/todos', todoRoutes);
-
-// Simple health check route
-app.get('/', (req, res) => {
-  res.send('Todo App API is running');
-});
-
-// Connect to MongoDB, then start the server
 const PORT = process.env.PORT || 5000;
 
 mongoose
